@@ -5,7 +5,7 @@
 /* black - #051133 */
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: ;
 }
 
 * {
@@ -202,7 +202,7 @@ hr {
 
 a.nav-brand {
     position: relative;
-    left: 0;
+    z-index: 4;
     font-family: 'EB Garamond', serif;
     font-weight: 300;
     font-size: 28px;
@@ -212,30 +212,35 @@ a.nav-brand {
 
 #menu-btn {
     cursor: pointer;
+    position: relative;
 }
 
 .nav-div {
     position: absolute;
-    top: 80px;
+    top: 0px;
     left: 0;
     height: 0px;
     width: 100%;
-    padding-left: 30%;
+    padding: 4%;
     background-color: white;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     transition: height 0.5s;
+}
+
+.links-div {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .nav-div.open {
     height: 100vh;
-}
-
-.nav-div .spacer {
-    height: 20%;
 }
 
 .nav-div a {
@@ -244,11 +249,25 @@ a.nav-brand {
     font-size: 6vw;
     opacity: 0;
     transition: opacity 0.4s;
-    margin: 4% 0;
+    margin: 4% 0%;
 }
 
 .nav-div.open a {
     opacity: 1;
+}
+
+.nav-div hr {
+    border-top: #807A6E solid 1px;
+    width: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.4s, width 0.6s;
+}
+
+.nav-div.open hr {
+    margin: 0;
+    opacity: 1;
+    width: 100%;
 }
 
 @media(min-width:768px) {
@@ -270,6 +289,15 @@ a.nav-brand {
     .nav-div.open {
         height: 100%;
     }
+    
+    .links-div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
     
     .nav-div a {
         font-family: 'Barlow', sans-serif;
